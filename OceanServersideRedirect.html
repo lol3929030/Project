@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Discord Redirect Button</title>
+  <title>Discord Redirect</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    /* Ripple animation */
+    /* Button anim */
     @keyframes ripple {
       from {
         transform: scale(0);
@@ -25,18 +25,17 @@
 </head>
 <body class="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4">
 
-  <!-- Link styled as button with ripple effect -->
   <a
     href="https://discord.gg/WVunG6EDd5"
     class="relative bg-black text-white border-2 border-blue-500 rounded px-4 py-2 font-semibold mb-4 focus:outline-none inline-block"
     onclick="createRipple(event)"
   >
     Join Our Discord
-    <!-- Ripple span -->
+    <!-- effect span -->
     <span class="ripple absolute inset-0"></span>
   </a>
 
-  <!-- Informational Text -->
+  <!-- Info -->
   <p class="text-black font-semibold text-center max-w-md">
     You can get information in our discord server.
   </p>
@@ -45,7 +44,6 @@
     function createRipple(event) {
       const link = event.currentTarget;
       
-      // Create ripple
       const circle = document.createElement("span");
       circle.className = "ripple-effect absolute bg-white opacity-30 rounded-full transform scale-0 animate-ripple";
       
@@ -58,10 +56,8 @@
       
       link.appendChild(circle);
       
-      // Remove ripple after animation
       circle.addEventListener("animationend", () => {
         circle.remove();
-        // No need to redirect here since href handles navigation
       });
     }
   </script>
